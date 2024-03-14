@@ -3,6 +3,9 @@ package com.spring.springbootmonolithicweb.service;
 import com.spring.springbootmonolithicweb.Question;
 import com.spring.springbootmonolithicweb.dao.QuestionDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -10,17 +13,35 @@ import java.util.List;
 public class QuestionService {
     @Autowired
     QuestionDao questionDao;
-    public List<Question> getQuestions(){
-        return questionDao.findAll();
+    public ResponseEntity<List<Question>> getQuestions(){
+        try
+        {
+            List<Question> questions = questionDao.findAll();
+            return new ResponseEntity<>(questions, HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
-    public List<Question> getQuestionsByCategory(String category){
-        return questionDao.findByCategory(category);
+    public ResponseEntity<List<Question>> getQuestionsByCategory(String category){
+        try {
+            List<Question> questions = questionDao.findByCategory(category);
+            return new ResponseEntity<>(questions, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
-    public String addQuestion(Question question) {
-        questionDao.save(question);
-        return "Question added successfully";
+    public ResponseEntity<String> addQuestion(Question question)
+    {
+        try {
+            questionDao.save(question);
+            return new ResponseEntity<>("Question added successfully", HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Failed to add question", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     public void initQuestions(String questionTitle, String option1, String option2, String option3, String option4,
