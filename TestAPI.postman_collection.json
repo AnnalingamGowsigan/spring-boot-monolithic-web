@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "15475a13-dd13-4899-95d6-e510fddd278e",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32268477"
+	},
+	"item": [
+		{
+			"name": "rest-requests Copy",
+			"item": [
+				{
+					"name": "initQuestions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/questions/initQuestions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"initQuestions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addQuestion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"questionTitle\": \"What is the purpose of the 'final' keyword in Java?\",\r\n    \"option1\": \"To indicate that a variable cannot be changed\",\r\n    \"option2\": \"To indicate the end of a method\",\r\n    \"option3\": \"To indicate the start of a class\",\r\n    \"option4\": \"To indicate that a method cannot be overridden\",\r\n    \"rightAnswer\": \"To indicate that a variable cannot be changed\",\r\n    \"difficultyLevel\": \"Intermediate\",\r\n    \"category\": \"Java\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/questions/addQuestion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"questions",
+								"addQuestion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quizCreate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/quiz/create?category=Java&numberOfQuestions=5&title=JQuiz2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quiz",
+								"create"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Java"
+								},
+								{
+									"key": "numberOfQuestions",
+									"value": "5"
+								},
+								{
+									"key": "title",
+									"value": "JQuiz2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submitQuiz",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\":53,\r\n        \"response\":\"A blueprint for objects\"\r\n    },\r\n    {\r\n        \"id\":54,\r\n        \"response\":\"A method with the same name as the class\"\r\n    },\r\n    {\r\n        \"id\":55,\r\n        \"response\":\"A way to reuse code\"\r\n    },\r\n    {\r\n        \"id\":56,\r\n        \"response\":\"A method that can be called without instance\"\r\n    },\r\n    {\r\n        \"id\":152,\r\n        \"response\":\"A way to create multiple methods with the same name\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/quiz/submit/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"quiz",
+								"submit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
