@@ -1,9 +1,8 @@
 package com.spring.springbootmonolithicweb.service;
 
-import com.spring.springbootmonolithicweb.Question;
+import com.spring.springbootmonolithicweb.model.Question;
 import com.spring.springbootmonolithicweb.dao.QuestionDao;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

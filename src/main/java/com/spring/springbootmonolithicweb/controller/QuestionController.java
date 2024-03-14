@@ -1,6 +1,6 @@
 package com.spring.springbootmonolithicweb.controller;
 
-import com.spring.springbootmonolithicweb.Question;
+import com.spring.springbootmonolithicweb.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

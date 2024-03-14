@@ -1,4 +1,4 @@
-package com.spring.springbootmonolithicweb;
+package com.spring.springbootmonolithicweb.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
